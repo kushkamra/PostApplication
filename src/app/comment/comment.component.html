@@ -1,0 +1,30 @@
+<div class="row Spaccer"> 
+    <div class="col-md-12">
+      <h3>Comments</h3>
+    </div>
+  </div>
+
+  <div class="row Spaccer"> 
+    <div class="col-md-10 form-group">
+      <input type="text" class="form-control"  [(ngModel)] = "comment" placeholder="Add comments here.."/> 
+    </div>
+      <div class="col-md-2 form-group">
+        <input type="button" class="form-control btn btn-primary" value="Add" (click) ="addComments()" />
+      </div>
+  </div>
+
+  <hr>
+  <div class="row Spaccer">
+    <div class="col-md-12 Spaccer" *ngFor="let comment of postComments">
+         <div  class="row">
+                   <div class="col-md-10">
+                    {{comment}}    
+                   </div>
+                   <div class="col-md-2">
+                    <likedislike [likes] = "1" [dislikes] = "3" [isliked] = true [isDisliked] = false ></likedislike>
+                   </div>
+         </div>
+                
+    </div>
+     
+  </div>

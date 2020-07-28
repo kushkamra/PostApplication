@@ -1,0 +1,30 @@
+<form #f="ngForm" (ngSubmit) = "submit(f)">
+<section>
+      <div class="container">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="postName" type="text" ngModel name="postName" #postName="ngModel" required class="form-control"/>  
+            <div class="alert alert-danger" *ngIf="postName.touched && !postName.valid">Post Name is required.</div>
+        </div>  
+        <div class="form-group">
+            <label for="descripton">Descripton</label>
+            <textarea id="descripton" type="text" required  class="form-control" ngModel name="descripton" #descripton="ngModel"></textarea>
+            <div class="alert alert-danger" *ngIf="descripton.touched && !descripton.valid">Descripton is required.</div>
+        </div>
+        <div class="form-group">
+            <label for="descripton">Category</label>
+            <select id="category" class="form-control" required ngModel  name="category" #category="ngModel">
+                    <option value=""></option>
+                    <option value="Jobs">Jobs</option>
+                    <option value="ECommerce">ECommerce</option>
+                    <option value="Social">Social</option>
+                    <option value="Entertainment">Entertainment</option>
+            </select>
+            <div class="alert alert-danger" *ngIf="category.touched && !category.valid">Category is required.</div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" [disabled] ="!f.valid">Create Post</button>
+        </div>         
+      </div>
+</section>    
+</form>
